@@ -7,7 +7,8 @@ class Pages extends BaseController
 	public function index()
 	{
 		$data = [
-			'title' => "Home | LearningCI4"
+			'title' => "Home | LearningCI4",
+			'tes' => ['satu', 'dua', 'tiga']
 		];
 		echo view('layout/header', $data);
 		echo view('pages/home');
