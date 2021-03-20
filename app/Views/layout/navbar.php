@@ -17,6 +17,9 @@
                     <a class="nav-link" href="<?= base_url('pages/contact'); ?>">Contact</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('comic/'); ?>">Comic</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
