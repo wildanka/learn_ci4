@@ -20,4 +20,26 @@ class Pages extends BaseController
 		];
 		echo view('pages/about', $data);
 	}
+
+
+	public function contact()
+	{
+		$data = [
+			'title' => "Contact Us | LearningCI4",
+			'alamat' => [
+				[
+					'tipe' => 'rumah',
+					'alamat' => 'Jl. yang lurus no.1',
+					'kota' => 'Cilegon'
+				],
+				[
+					'tipe' => 'kantor',
+					'alamat' => 'Jl. yang diberkahi no.1',
+					'kota' => 'Cilegon'
+				]
+			]
+
+		];
+		return view('pages/contact', $data);
+	}
 }
