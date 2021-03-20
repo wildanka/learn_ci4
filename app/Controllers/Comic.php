@@ -6,18 +6,28 @@ use App\Models\ComicModel;
 
 class Comic extends BaseController
 {
+	protected $comicModel;
+	public function __construct()
+	{
+		$this->comicModel = new ComicModel();
+	}
+
+
 	public function index()
 	{
+		$komik = $this->comicModel->findAll();
+
 		$data = [
-			'title' => 'Daftar Komik'
+			'title' => 'Daftar Komik',
+			'komik' => $komik
 		];
 
 		//
 		//$komikModel = new /App/ //-> slashnya dibalik (backslash)
 		$komikModel = new ComicModel();
-		$comics = $komikModel->findAll();
+		// $comics = $komikModel->findAll();
 
-		dd($comics);
+		// dd($comics);
 
 		return view('comic/index', $data);
 	}

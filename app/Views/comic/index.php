@@ -16,15 +16,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td><img src="/img/naruto.jpg" alt="" class="sampul"></td>
-                        <td>Naruto</td>
-                        <td>
-                            <a href="" class="btn btn-info">Detail</a>
-                            <a href="" class="btn btn-success">Beli</a>
-                        </td>
-                    </tr>
+                    <?php $i = 0 ?>
+                    <?php foreach ($komik as $k) :  ?>
+                        <tr>
+                            <th scope="row"><?= $i++; ?></th>
+                            <td><img src="/img/<?= $k['cover']; ?>" alt="" class="sampul"></td>
+                            <td><?= $title; ?></td>
+                            <td>
+                                <a href="" class="btn btn-info">Detail</a>
+                                <a href="" class="btn btn-success">Beli</a>
+                            </td>
+                        </tr>
+                    <?php endforeach;  ?>
+
                 </tbody>
             </table>
         </div>
