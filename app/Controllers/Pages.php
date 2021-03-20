@@ -10,9 +10,7 @@ class Pages extends BaseController
 			'title' => "Home | LearningCI4",
 			'tes' => ['satu', 'dua', 'tiga']
 		];
-		echo view('layout/header', $data);
-		echo view('pages/home');
-		echo view('layout/footer');
+		echo view('pages/home', $data);
 	}
 
 	public function about()
@@ -20,8 +18,6 @@ class Pages extends BaseController
 		$data = [
 			'title' => "About Me | LearningCI4"
 		];
-		echo view('layout/header', $data);
-		echo view('pages/about');
-		echo view('layout/footer');
+		echo view('pages/about', $data);
 	}
 }
