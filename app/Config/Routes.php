@@ -36,7 +36,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/coba/index', 'Coba::index');
 $routes->get('/coba/about', 'Coba::about');
 $routes->get('/coba/(:any)', 'Coba::about/$1');
-// $routes->get('/coba/(:any)/(:num)', 'Coba::about/$1/$2');
+// $routes->get('/coba/(:any)/(:num)', 'Coba::abou t/$1/$2');
 $routes->get('/users', 'Admin\Users::index'); 
 
 /*
