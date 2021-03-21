@@ -35,6 +35,11 @@ class Comic extends BaseController
 	public function detail($slug)
 	{
 		$komik = $this->comicModel->getComic($slug);
-		dd($komik);
+
+		$data = [
+			'title' => 'Detail Komik',
+			'komik' => $komik
+		];
+		return view('comic/detail', $data);
 	}
 }
