@@ -48,8 +48,14 @@ class Comic extends BaseController
 		// $komik = $this->comicModel->getComic($slug);
 
 		$data = [
-			'title' => 'Detail Komik'
+			'title' => 'Tambah Data Komik'
 		];
-		return view('comic/detail', $data);
+		return view('comic/add', $data);
+	}
+
+	public function save()
+	{
+		$req = $this->request->getVar();
+		dd($req);
 	}
 }

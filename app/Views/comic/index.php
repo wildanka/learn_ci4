@@ -23,7 +23,7 @@
                             <td><img src="/img/<?= $k['cover']; ?>" alt="" class="sampul"></td>
                             <td><?= $title; ?></td>
                             <td>
-                                <a href="/komik/<?= $k['slug']; ?>" class="btn btn-info">Detail</a>
+                                <a href="/comic/<?= $k['slug']; ?>" class="btn btn-info">Detail</a>
                                 <a href="" class="btn btn-success">Beli</a>
                             </td>
                         </tr>

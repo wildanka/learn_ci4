@@ -32,7 +32,8 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/komik/(:segment)', 'Comic::detail/$1');
+$routes->get('/comic/add', 'Comic::add');
+$routes->get('/comic/(:segment)', 'Comic::detail/$1'); //whatchout for route sorting position, better to put wildcard on below so thee system will always prioritize route with specific route first
 
 /*
  * --------------------------------------------------------------------
