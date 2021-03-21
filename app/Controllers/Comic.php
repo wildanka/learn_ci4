@@ -24,11 +24,18 @@ class Comic extends BaseController
 
 		//
 		//$komikModel = new /App/ //-> slashnya dibalik (backslash)
-		$komikModel = new ComicModel();
+		// $komikModel = new ComicModel();
 		// $comics = $komikModel->findAll();
 
 		// dd($comics);
 
 		return view('comic/index', $data);
+	}
+
+	public function detail($slug)
+	{
+		$komik = $this->comicModel->where(['slug' => $slug])->first();
+		dd($komik);
+		echo $slug;
 	}
 }
