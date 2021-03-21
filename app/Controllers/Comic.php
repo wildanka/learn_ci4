@@ -40,6 +40,12 @@ class Comic extends BaseController
 			'title' => 'Detail Komik',
 			'komik' => $komik
 		];
+
+		//jika komik tidak ada di tabel
+		if (empty($data['komik'])) {
+			throw new \CodeIgniter\Exceptions\PageNotFoundException('Judul Komik ' . $slug . ' tidak ditemukan.');
+		}
+
 		return view('comic/detail', $data);
 	}
 
