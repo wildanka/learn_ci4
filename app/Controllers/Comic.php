@@ -15,7 +15,7 @@ class Comic extends BaseController
 
 	public function index()
 	{
-		$komik = $this->comicModel->findAll();
+		$komik = $this->comicModel->getComic();
 
 		$data = [
 			'title' => 'Daftar Komik',
@@ -34,8 +34,7 @@ class Comic extends BaseController
 
 	public function detail($slug)
 	{
-		$komik = $this->comicModel->where(['slug' => $slug])->first();
+		$komik = $this->comicModel->getComic($slug);
 		dd($komik);
-		echo $slug;
 	}
 }
