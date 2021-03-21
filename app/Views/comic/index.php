@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Comic List</h1>
-            <hr>
-            <table class="table">
+            <h1 class="mt-2">Comic List</h1>
+            <a href="/comic/add" class="btn btn-primary mb-3">Tambah Data Comic</a>
+            <table class="table mt-2">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
