@@ -61,7 +61,21 @@ class Comic extends BaseController
 
 	public function save()
 	{
-		$req = $this->request->getVar();
-		dd($req);
+		$slug = url_title($this->request->getVar('title'), '-', true);
+
+		$this->comicModel->save([
+			'title' => $this->request->getVar('title'),
+			'slug' => $slug,
+			'writter' => $this->request->getVar('writter'),
+			'publisher' => $this->request->getVar('publisher'),
+			'cover' => $this->request->getVar('cover'),
+		]);
+
+		session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
+
+		return redirect()->to('/comic');
+		// $req = $this->request->getVar();
+		// dd($req);
+
 	}
 }
