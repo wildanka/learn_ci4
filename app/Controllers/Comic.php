@@ -61,6 +61,15 @@ class Comic extends BaseController
 
 	public function save()
 	{
+		//validasi input
+		if (!$this->validate([
+			'title' => 'required|is_unique[comic.title]'
+		])) {
+			$validation = \Config\Services::validation();
+			dd($validation);
+			return redirect()->to('add');
+		}
+
 		$slug = url_title($this->request->getVar('title'), '-', true);
 
 		$this->comicModel->save([
