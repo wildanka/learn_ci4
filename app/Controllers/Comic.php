@@ -67,7 +67,13 @@ class Comic extends BaseController
 	{
 		//validasi input
 		if (!$this->validate([
-			'title' => 'required|is_unique[comic.title]'
+			'title' => [
+				'rules' => 'required|is_unique[comic.title]',
+				'errors' => [
+					'required' => '{field} komik harus diisi.',
+					'is_unique' => '{field} komik sudah pernah terdaftar.'
+				]
+			]
 		])) {
 			$validation = \Config\Services::validation();
 			// dd($validation);
