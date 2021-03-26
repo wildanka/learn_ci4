@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col">
             <h2 class="mt-3" style="margin-bottom: 20px;">Add New Comic</h2>
+            <?= $validation->listErrors(); ?>
             <form action="/comic/save" method="POST">
                 <?= csrf_field(); ?>
                 <div class="form-group row">

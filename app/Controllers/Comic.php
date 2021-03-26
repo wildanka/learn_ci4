@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ComicModel;
+use Config\Validation;
 
 class Comic extends BaseController
 {
@@ -52,10 +53,13 @@ class Comic extends BaseController
 	public function add()
 	{
 		// $komik = $this->comicModel->getComic($slug);
+		// session();
 
 		$data = [
-			'title' => 'Tambah Data Komik'
+			'title' => 'Tambah Data Komik',
+			'validation' => \Config\Services::validation()
 		];
+
 		return view('comic/add', $data);
 	}
 
@@ -66,8 +70,8 @@ class Comic extends BaseController
 			'title' => 'required|is_unique[comic.title]'
 		])) {
 			$validation = \Config\Services::validation();
-			dd($validation);
-			return redirect()->to('add');
+			// dd($validation);
+			return redirect()->to('add')->withInput()->with('validation', $validation);
 		}
 
 		$slug = url_title($this->request->getVar('title'), '-', true);
