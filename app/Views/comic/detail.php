@@ -17,7 +17,7 @@
                             <p class="card-text"><small class="text-muted"><b>Publisher : </b><?= $komik['publisher']; ?></small></p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                             <a href="" class="btn btn-warning">Edit</a>
-                            <a href="" class="btn btn-danger">Delete</a>
+                            <a href="/comic/delete/<?= $komik['id_comic']; ?>" class="btn btn-danger">Delete</a>
                             <br><br>
                             <a href="/comic">Kembali Ke Daftar Komik</a>
                         </div>

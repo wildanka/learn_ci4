@@ -97,4 +97,13 @@ class Comic extends BaseController
 		// dd($req);
 
 	}
+
+	//hard delete
+	public function delete($id)
+	{
+		$id_comic = $id;
+		// $this->comicModel->delete($id); ini cuma bisa dijalankan kalau nama kolom id di table db kita adalah 'id'
+		$this->comicModel->where(['id_comic' => $id])->delete(); //karena kolom id di table kita bernama 'id_comic', maka lakukan seperti ini
+		return redirect()->to('/comic');
+	}
 }
