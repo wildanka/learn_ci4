@@ -5,13 +5,15 @@
     <div class="row">
         <div class="col">
             <h2 class="mt-3" style="margin-bottom: 20px;">Add New Comic</h2>
-            <?= $validation->listErrors(); ?>
             <form action="/comic/save" method="POST">
                 <?= csrf_field(); ?>
                 <div class="form-group row">
                     <label for="inputTitle" class="col-sm-2 col-form-label">Judul</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="inputTitle" name="title" placeholder="cth: naruto, slamdunk, dll" autofocus>
+                        <input type="text" class="form-control <?= ($validation->hasError('title')) ? 'is-invalid' : ''; ?>" id="inputTitle" name="title" placeholder="cth: naruto, slamdunk, dll" autofocus>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('title'); ?>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
