@@ -33,7 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/comic/add', 'Comic::add');
-$routes->get('/comic/(:segment)', 'Comic::detail/$1'); //whatchout for route sorting position, better to put wildcard on below so thee system will always prioritize route with specific route first
+$routes->delete('/comic/(:num)', 'Comic::delete/$1');
+$routes->get('/comic/(:any)', 'Comic::detail/$1'); //whatchout for route sorting position, better to put wildcard on below so thee system will always prioritize route with specific route first
 
 /*
  * --------------------------------------------------------------------

@@ -104,6 +104,8 @@ class Comic extends BaseController
 		$id_comic = $id;
 		// $this->comicModel->delete($id); ini cuma bisa dijalankan kalau nama kolom id di table db kita adalah 'id'
 		$this->comicModel->where(['id_comic' => $id])->delete(); //karena kolom id di table kita bernama 'id_comic', maka lakukan seperti ini
+		session()->setFlashdata('pesan', 'Data berhasil dihapus.');
+
 		return redirect()->to('/comic');
 	}
 }

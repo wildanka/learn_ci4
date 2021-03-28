@@ -16,8 +16,16 @@
                             <p class="card-text"><b>Penulis : </b><?= $komik['writter']; ?></p>
                             <p class="card-text"><small class="text-muted"><b>Publisher : </b><?= $komik['publisher']; ?></small></p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+
                             <a href="" class="btn btn-warning">Edit</a>
-                            <a href="/comic/delete/<?= $komik['id_comic']; ?>" class="btn btn-danger">Delete</a>
+                            <!-- by default, element form akan diperlakukan seperti block oleh form, maka kita haruss membuatnya menjadi inline agar button delete sejajar dengan edit -->
+                            <form action="/comic/<?= $komik['id_comic']; ?>" method="POST" class="d-inline">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" href="/comic/delete/<?= $komik['id_comic']; ?>" onclick="return confirm('apakah anda yakin akan menghapus komik dengan judul ini?');" class="btn btn-danger">Delete</button>
+                            </form>
+
                             <br><br>
                             <a href="/comic">Kembali Ke Daftar Komik</a>
                         </div>
