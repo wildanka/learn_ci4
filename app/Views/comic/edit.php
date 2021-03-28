@@ -11,7 +11,7 @@
                 <div class="form-group row">
                     <label for="inputTitle" class="col-sm-2 col-form-label">Judul</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control <?= ($validation->hasError('title')) ? 'is-invalid' : ''; ?>" id="inputTitle" name="title" placeholder="cth: naruto, slamdunk, dll" value="<?= $comic['title']; ?>" autofocus required>
+                        <input type="text" class="form-control <?= ($validation->hasError('title')) ? 'is-invalid' : ''; ?>" id="inputTitle" name="title" placeholder="cth: naruto, slamdunk, dll" value="<?= $comic['title']; ?>" autofocus>
                         <div class="invalid-feedback">
                             <?= $validation->getError('title'); ?>
                         </div>

@@ -124,6 +124,44 @@ class Comic extends BaseController
 
 	public function update($id)
 	{
-		dd($this->request->getVar());
+		//validasi input dengan slug
+		//cek, kalau user tidak mengganti judul maka jangan pakai is_unique, jika user mengganti judul maka gunakan rules is_unique
+		$oldComicSlug = $this->comicModel->getComic($this->request->getVar('slug'));
+		$newComicSlug = $this->request->getVar('judul');
+		if ($oldComicSlug['title'] == $newComicSlug) {
+			$title_rule = 'required';
+		} else {
+			$title_rule = 'required|is_unique[comic.title]';
+		}
+
+		if (!$this->validate([
+			'title' => [
+				'rules' => $title_rule,
+				'errors' => [
+					'required' => '{field} komik harus diisi.',
+					'is_unique' => '{field} komik sudah pernah terdaftar.'
+				]
+			]
+		])) {
+			$validation = \Config\Services::validation();
+			// dd($validation);
+			return redirect()->to('/comic/edit/' . $this->request->getVar('slug'))->withInput()->with('validation', $validation);
+		}
+
+		$slug = url_title($this->request->getVar('title'), '-', true);
+
+		//method save di ci4 sekarang lebih canggih, jika ada ID maka dia akan update data, jika tidak ada, maka dia akan input data baru.
+		$this->comicModel->save([
+			'id_comic' => $id,
+			'title' => $this->request->getVar('title'),
+			'slug' => $slug,
+			'writter' => $this->request->getVar('writter'),
+			'publisher' => $this->request->getVar('publisher'),
+			'cover' => $this->request->getVar('cover'),
+		]);
+
+		session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
+
+		return redirect()->to('/comic');
 	}
 }
