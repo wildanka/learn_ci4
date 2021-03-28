@@ -18,7 +18,7 @@
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
 
-                            <a href="" class="btn btn-warning">Edit</a>
+                            <a href="/comic/edit/<?= $komik['slug']; ?>" class="btn btn-warning">Edit</a>
                             <!-- by default, element form akan diperlakukan seperti block oleh form, maka kita haruss membuatnya menjadi inline agar button delete sejajar dengan edit -->
                             <form action="/comic/<?= $komik['id_comic']; ?>" method="POST" class="d-inline">
                                 <?= csrf_field(); ?>

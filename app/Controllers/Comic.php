@@ -108,4 +108,22 @@ class Comic extends BaseController
 
 		return redirect()->to('/comic');
 	}
+
+
+	public function edit($slug)
+	{
+		$data = [
+			'title' => 'Tambah Data Komik',
+			'validation' => \Config\Services::validation(),
+			'comic' => $this->comicModel->getComic($slug)
+		];
+
+		return view('comic/edit', $data);
+	}
+
+
+	public function update($id)
+	{
+		dd($this->request->getVar());
+	}
 }
